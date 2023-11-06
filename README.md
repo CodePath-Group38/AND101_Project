@@ -5,7 +5,6 @@
 Submitted by:
 - **Team Member 1 Name Here**
 - **Team Member 2 Name Here**
-- **etc**
 
 Time spent: **X** hours spent in total
 
