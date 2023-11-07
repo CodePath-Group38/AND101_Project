@@ -79,7 +79,7 @@ Required Feature
 ## Wireframes
 
 <!-- Add picture of your hand sketched wireframes in this section -->
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
+<img src="https://i.imgur.com/Kt0TaYn.png" width=600>
 
 ### [BONUS] Digital Wireframes & Mockups
 
