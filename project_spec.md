@@ -1,5 +1,5 @@
 # **Meal Maker**
-<img src='https://i.imgur.com/spqjwnm.jpg' title='App Logo' width='' alt='AppLogo' width=300 />
+<img src='https://i.imgur.com/spqjwnm.jpg' title='App Logo' width='' alt='AppLogo' width=300 heigth=300/>
 
 ## Table of Contents
 
