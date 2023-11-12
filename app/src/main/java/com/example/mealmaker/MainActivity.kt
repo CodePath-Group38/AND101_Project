@@ -1,5 +1,6 @@
 package com.example.mealmaker
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     val id = "72a9a585"
     val key = "b2bc0b595313e8d3dcbda591d057ab41"
     val health = "&health=gluten-free"
-    var ingr = "chicken, potato"
+    var ingr = ""
     val ingList = ""
 
 
@@ -32,6 +33,12 @@ class MainActivity : AppCompatActivity() {
         val searchButton = findViewById<TextView>(R.id.search)
         searchButton.setOnClickListener{
             showResult()
+
+            val intent = Intent(this, RecipesActivity::class.java)
+
+            startActivity(intent)
+
+
         }
 
 
@@ -71,6 +78,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showResult(){
+        parseIngr()
         val ingText = findViewById<EditText>(R.id.ingr)
         ingr = ingText.text.toString()
         getMealListURL()
