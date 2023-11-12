@@ -17,12 +17,12 @@ import okhttp3.Headers
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-    val id = "72a9a585"
-    val key = "b2bc0b595313e8d3dcbda591d057ab41"
-    val health = "&health=gluten-free"
-    var ingr = ""
-    val ingList = ""
-
+    private val id = "72a9a585"
+    private val key = "b2bc0b595313e8d3dcbda591d057ab41"
+    private val health = "&health=gluten-free"
+    private var ingr = "chicken"
+    private var ingList = ""
+    private var link = ""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,8 +34,13 @@ class MainActivity : AppCompatActivity() {
         searchButton.setOnClickListener{
             showResult()
 
+            parseIngr()
+
+            link = "https://api.edamam.com/api/recipes/v2?type=public&q=$ingList&app_id=$id&app_key=$key$health"
+
             val intent = Intent(this, RecipesActivity::class.java)
 
+            intent.putExtra("link", link)
             startActivity(intent)
 
 
@@ -48,8 +53,8 @@ class MainActivity : AppCompatActivity() {
     private fun getMealListURL() {
 
         val client = AsyncHttpClient()
-        parseIngr()
-        val link = "https://api.edamam.com/api/recipes/v2?type=public&q=$ingList&app_id=$id&app_key=$key$health"
+
+
         client[link, object : JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
                 Log.d("Food", "response successful$json")
@@ -73,15 +78,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun parseIngr(){
         val word = ingr.split(", ", " ")
-        val ingList = word.joinToString("%20")
+        ingList = word.joinToString("%20")
 
     }
 
     private fun showResult(){
-        parseIngr()
+
         val ingText = findViewById<EditText>(R.id.ingr)
         ingr = ingText.text.toString()
-        getMealListURL()
+
+        parseIngr()
 
     }
 }
