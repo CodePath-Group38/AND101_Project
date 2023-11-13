@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <Spinner
+        android:id="@+id/meal"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="89dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cuisine" />
+
+    <Spinner
+        android:id="@+id/cuisine"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="89dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/diet" />
+
     <TextView
         android:id="@+id/app_Name"
         android:layout_width="0dp"
@@ -26,17 +50,17 @@
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="48dp"
         android:text="Search"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gluten" />
+        app:layout_constraintTop_toBottomOf="@+id/meal" />
 
     <Button
         android:id="@+id/rand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="48dp"
         android:text="Random"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,11 +69,11 @@
     <EditText
         android:id="@+id/ingr"
         android:layout_width="256dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="56dp"
         android:ems="10"
-        android:inputType="text"
         android:hint="Ingredients"
+        android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -61,10 +85,23 @@
         android:id="@+id/gluten"
         android:layout_width="233dp"
         android:layout_height="83dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="4dp"
         android:text="Gluten-free"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingr" />
+
+    <Spinner
+        android:id="@+id/diet"
+        android:layout_width="226dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="89dp"
+        android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gluten" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
