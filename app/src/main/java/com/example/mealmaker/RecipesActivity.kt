@@ -11,6 +11,9 @@ import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
 
+data class Obj(val img: String, val name: String, val desc: String, val special: String)
+
+
 class RecipesActivity : AppCompatActivity() {
     var link = ""
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,12 +36,11 @@ class RecipesActivity : AppCompatActivity() {
         client[link, object : JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
                 Log.d("Food", "response successful$json")
-
                 Toast.makeText(applicationContext, "searching", Toast.LENGTH_SHORT).show()
 
                 val linkText = findViewById<TextView>(R.id.linkText)
-
                 linkText.text = link.toString()
+
 
 
 

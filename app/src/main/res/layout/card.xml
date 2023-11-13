@@ -16,36 +16,36 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/idIVCourseImage"
+            android:id="@+id/recipe_pic"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
             android:contentDescription="@string/app_name"
             android:padding="5dp"
-            android:src="" />
+             />
 
 
         <TextView
-            android:id="@+id/idTVCourseName"
+            android:id="@+id/recipe_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
-            android:layout_toEndOf="@id/idIVCourseImage"
-            android:text="course_name"
+            android:layout_toEndOf="@id/recipe_pic"
+            android:text="Chicken Style Cheese Cake Recipe"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:textStyle="bold" />
 
 
         <TextView
-            android:id="@+id/idTVCourseRating"
+            android:id="@+id/rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/idTVCourseName"
+            android:layout_below="@id/recipe_name"
             android:layout_marginStart="10dp"
             android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/idIVCourseImage"
+            android:layout_toEndOf="@id/recipe_pic"
             android:drawablePadding="2dp"
             android:text="course_rating"
             />
