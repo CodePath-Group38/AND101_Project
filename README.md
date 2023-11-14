@@ -40,7 +40,7 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 
-<img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/5zOL7Qx.mp4' title='Video Demo' width='' alt='Video Demo' />
+<img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/demo.gif' title='Video Demo' width='' alt='Video Demo' />
 
 
 VIDEO created with **GIF Maker Editor**
