@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -25,7 +26,7 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
     private val id = "72a9a585"
     private val key = "b2bc0b595313e8d3dcbda591d057ab41"
-    private val health = "&health=gluten-free"
+    private var health = ""
     private var ingr = "chicken"
     private var ingList = ""
     private var link = ""
@@ -74,7 +75,7 @@ class MainActivity : AppCompatActivity() {
 
 
                 dietType = dietList[dietType].toString()
-                Toast.makeText(applicationContext, dietType, Toast.LENGTH_SHORT).show()
+
 
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -88,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 cuisineType = item2.selectedItem.toString()
                 cuisineType = cuisineList[cuisineType].toString()
-                Toast.makeText(applicationContext, cuisineType, Toast.LENGTH_LONG).show()
+
 
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -103,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 mealType = item3.selectedItem.toString()
 
                 mealType = mealList[mealType].toString()
-                Toast.makeText(applicationContext, mealType, Toast.LENGTH_LONG).show()
+
 
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -113,16 +114,26 @@ class MainActivity : AppCompatActivity() {
 
         val searchButton = findViewById<TextView>(R.id.search)
         searchButton.setOnClickListener{
+            health = ""
             showResult()
 
             parseIngr()
+            val gluten = findViewById<Switch>(R.id.gluten)
+            if (gluten.isChecked){
+                health = "&health=gluten-free"
+            }
 
             link = "https://api.edamam.com/api/recipes/v2?type=public&q=$ingList&app_id=$id&app_key=$key$dietType$health$cuisineType$mealType"
 
             val intent = Intent(this, RecipesActivity::class.java)
 
-            intent.putExtra("link", link)
-            startActivity(intent)
+            if (ingList != ""){
+                intent.putExtra("link", link)
+                startActivity(intent)
+            }else{
+                Toast.makeText(applicationContext, "Please enter at least one ingredient", Toast.LENGTH_SHORT).show()
+            }
+
 
         }
     }
