@@ -1,20 +1,15 @@
 package com.example.mealmaker
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.codepath.asynchttpclient.AsyncHttpClient
-import com.codepath.asynchttpclient.RequestParams
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
-import androidx.recyclerview.widget.RecyclerView
-import java.util.Objects
-
 
 
 class RecipesActivity : AppCompatActivity() {
@@ -32,6 +27,7 @@ class RecipesActivity : AppCompatActivity() {
         getMealListURL()
 
     }
+
 
     private fun getMealListURL() {
         val client = AsyncHttpClient()
