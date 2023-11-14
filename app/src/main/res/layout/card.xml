@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
+    android:layout_margin="5dp"
     app:cardBackgroundColor="@color/white"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="1dp"
-    app:cardMaxElevation="1dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    app:cardMaxElevation="5dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true">
 
@@ -22,6 +22,8 @@
             android:layout_margin="10dp"
             android:contentDescription="@string/app_name"
             android:padding="5dp"
+            app:cardCornerRadius="10dp"
+
              />
 
 
@@ -44,10 +46,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/recipe_name"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/recipe_pic"
             android:drawablePadding="2dp"
             android:text="course_rating"
             />
+
+        <TextView
+            android:id="@+id/health"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rating"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_toEndOf="@id/recipe_pic"
+            android:drawablePadding="2dp"
+            android:text="Meal Maker" />
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

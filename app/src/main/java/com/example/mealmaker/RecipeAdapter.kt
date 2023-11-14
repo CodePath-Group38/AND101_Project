@@ -17,10 +17,13 @@ class RecipeAdapter(recipeModelArrayList: ArrayList<RecipeModel>):
         val recipeImg: ImageView
         val recipeName: TextView
         val recipeRate: TextView
+        val recipeHealth: TextView
         init {
             recipeImg = itemView.findViewById(R.id.recipe_pic)
             recipeName = itemView.findViewById(R.id.recipe_name)
             recipeRate = itemView.findViewById(R.id.rating)
+            recipeHealth = itemView.findViewById(R.id.health)
+
         }
     }
 
@@ -36,6 +39,7 @@ class RecipeAdapter(recipeModelArrayList: ArrayList<RecipeModel>):
         val model: RecipeModel = recipeModelArrayList[position]
         holder.recipeName.setText(model.getRecipe_name())
         holder.recipeRate.setText("" + model.getRecipe_rating())
+        holder.recipeHealth.setText(model.getRecipe_health())
 
         Glide.with(holder.recipeImg.context)
             .load(model.getRecipe_image())
