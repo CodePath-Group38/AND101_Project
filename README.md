@@ -44,7 +44,7 @@ Here's a video that demos all of the app's implemented features:
 
 <img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/demo.gif' title='Video Demo' width='' alt='Video Demo' />
 
-VIDEO created with **GIF Maker Editor**
+GIF created with **[ScreenToGif](https://www.screentogif.com/) for Windows**
 
 ## Notes
 
