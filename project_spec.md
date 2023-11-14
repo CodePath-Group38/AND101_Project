@@ -93,6 +93,15 @@ process, or what you learned this unit!
 
 For Milestone 2, include **2+ Videos/GIFs** of the build process here!
 
+Carlos Sac:
+
+
+
+
+Zhihua Zhu:
+
+
+
 ## License
 
 Copyright **Carlos Sac & Zhihua Zhu** 
