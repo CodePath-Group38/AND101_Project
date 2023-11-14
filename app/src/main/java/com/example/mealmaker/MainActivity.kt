@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -15,9 +14,6 @@ import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import com.codepath.asynchttpclient.AsyncHttpClient
-import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
-import okhttp3.Headers
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -126,13 +122,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RecipesActivity::class.java)
 
             if ( ingList != "") {
-                if(!isValid()){
+
+
                     Toast.makeText(applicationContext, "Searching", Toast.LENGTH_LONG).show()
                     intent.putExtra("link", link)
                     startActivity(intent)
-                }else{
-                    Toast.makeText(applicationContext, "Couldn't find recipes", Toast.LENGTH_LONG).show()
-                }
 
             }else{
                 Toast.makeText(applicationContext, "Please enter at least one ingredient", Toast.LENGTH_LONG).show()
@@ -152,36 +146,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun isValid(): Boolean {
-
-        val client = AsyncHttpClient()
-        var isArrValid = true
-
-
-        client[link, object : JsonHttpResponseHandler() {
-            override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
-                Log.d("Food", "response successful$json")
-
-                val arr = json.jsonObject.getJSONArray("hits")
-                if(arr.isNull(0)){
-
-                    isArrValid = false
-                    return
-                }
-
-            }
-            override fun onFailure(
-                statusCode: Int,
-                headers: Headers?,
-                errorResponse: String,
-                throwable: Throwable?
-            ) {
-                Log.d("Recipe Error", errorResponse)
-            }
-        }]
-        return isArrValid
-
-    }
 
     private fun parseIngr(){
         val word = ingr.split(", ", " ")
