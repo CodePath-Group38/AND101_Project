@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 
-class RecipeAdapter(val context: Context, recipeModelArrayList: ArrayList<RecipeModel>):
+class RecipeAdapter(recipeModelArrayList: ArrayList<RecipeModel>):
     RecyclerView.Adapter<RecipeAdapter.ViewHolder>() {
 
     private val recipeModelArrayList: ArrayList<RecipeModel>
@@ -28,12 +28,12 @@ class RecipeAdapter(val context: Context, recipeModelArrayList: ArrayList<Recipe
     init {
         this.recipeModelArrayList = recipeModelArrayList
     }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.card, parent, false)
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: RecipeAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val model: RecipeModel = recipeModelArrayList[position]
         holder.recipeName.setText(model.getRecipe_name())
         holder.recipeRate.setText("" + model.getRecipe_rating())

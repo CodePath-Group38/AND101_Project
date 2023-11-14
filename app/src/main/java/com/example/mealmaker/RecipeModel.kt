@@ -1,6 +1,6 @@
 package com.example.mealmaker
 
-class RecipeModel (var recipe_name: String, var recipe_rating: Int, var recipe_image: String) {
+class RecipeModel (private var recipe_name: String, private var recipe_rating: String, private var recipe_image: String) {
     fun getRecipe_name(): String {
         return recipe_name
     }
@@ -9,11 +9,11 @@ class RecipeModel (var recipe_name: String, var recipe_rating: Int, var recipe_i
         this.recipe_name = recipe_name
     }
 
-    fun getRecipe_rating(): Int {
+    fun getRecipe_rating(): String {
         return recipe_rating
     }
 
-    fun setRecipe_rating(recipe_rating: Int) {
+    fun setRecipe_rating(recipe_rating: String) {
         this.recipe_rating = recipe_rating
     }
 
