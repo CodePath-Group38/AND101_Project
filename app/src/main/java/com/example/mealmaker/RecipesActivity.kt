@@ -43,9 +43,10 @@ class RecipesActivity : AppCompatActivity() {
 
                     val name = recipeObj.getString("label").toString()
                     val img = recipeObj.getString("image").toString()
-                    val course = recipeObj.getJSONArray("dishType").toString()
+                    val course = recipeObj.getJSONArray("dishType")[0].toString()
+                    val heal = recipeObj.getJSONArray("healthLabels")[0].toString()
 
-                    recipeModelArrayList.add(RecipeModel(name, "Course: $course", img))
+                    recipeModelArrayList.add(RecipeModel(name, "Course: $course", img, "Diet: $heal"))
                 }
 
                 val recipeAdapter = RecipeAdapter(recipeModelArrayList)
