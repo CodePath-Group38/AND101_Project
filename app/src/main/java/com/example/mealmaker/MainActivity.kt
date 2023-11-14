@@ -126,12 +126,12 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RecipesActivity::class.java)
 
             if ( ingList != "") {
-                if(isValid()){
+                if(!isValid()){
                     Toast.makeText(applicationContext, "Searching", Toast.LENGTH_LONG).show()
                     intent.putExtra("link", link)
                     startActivity(intent)
                 }else{
-                    Toast.makeText(applicationContext, "False", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Couldn't find recipes", Toast.LENGTH_LONG).show()
                 }
 
             }else{
@@ -164,7 +164,7 @@ class MainActivity : AppCompatActivity() {
 
                 val arr = json.jsonObject.getJSONArray("hits")
                 if(arr.isNull(0)){
-                    Toast.makeText(applicationContext, "Couldn't find recipes", Toast.LENGTH_LONG).show()
+
                     isArrValid = false
                     return
                 }
