@@ -40,7 +40,8 @@ class MainActivity : AppCompatActivity() {
         "High Fiber" to "&diet=high-fiber",
         "High Protein" to "&diet=high-protein",
         "Low Carb" to "&diet=low-carb",
-        "Low Fat" to "&diet=low-fat"
+        "Low Fat" to "&diet=low-fat",
+        "Diet" to ""
     )
 
     private val cuisineList = mapOf(
@@ -50,12 +51,14 @@ class MainActivity : AppCompatActivity() {
         "French" to "&cuisineType=french",
         "Italian" to "&cuisineType=italian",
         "Mexican" to "&cuisineType=mexican",
+        "Cuisine" to ""
     )
 
     private val mealList = mapOf(
         "Breakfast" to "&mealType=breakfast",
         "Lunch"  to "&mealType=lunch" ,
-        "Dinner" to "&mealType=dinner"
+        "Dinner" to "&mealType=dinner",
+        "Meal Type" to ""
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,10 +72,10 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 dietType = item1.selectedItem.toString()
 
-                if (p2 != 0) {
-                    dietType = dietList[dietType].toString()
-                    Toast.makeText(applicationContext, dietType, Toast.LENGTH_SHORT).show()
-                }
+
+                dietType = dietList[dietType].toString()
+                Toast.makeText(applicationContext, dietType, Toast.LENGTH_SHORT).show()
+
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")
@@ -84,10 +87,9 @@ class MainActivity : AppCompatActivity() {
         item2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 cuisineType = item2.selectedItem.toString()
-                if (p2 != 0) {
-                    cuisineType = cuisineList[cuisineType].toString()
-                    Toast.makeText(applicationContext, cuisineType, Toast.LENGTH_LONG).show()
-                }
+                cuisineType = cuisineList[cuisineType].toString()
+                Toast.makeText(applicationContext, cuisineType, Toast.LENGTH_LONG).show()
+
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")
@@ -99,10 +101,10 @@ class MainActivity : AppCompatActivity() {
         item3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 mealType = item3.selectedItem.toString()
-                if (p2 != 0) {
-                    mealType = mealList[mealType].toString()
-                    Toast.makeText(applicationContext, mealType, Toast.LENGTH_LONG).show()
-                }
+
+                mealType = mealList[mealType].toString()
+                Toast.makeText(applicationContext, mealType, Toast.LENGTH_LONG).show()
+
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
                 TODO("Not yet implemented")

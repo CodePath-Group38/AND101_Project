@@ -35,8 +35,7 @@ class RecipesActivity : AppCompatActivity() {
 
     private fun getMealListURL() {
         val client = AsyncHttpClient()
-        val link2 = "https://api.edamam.com/api/recipes/v2?type=public&q=chicken%20broccoli&app_id=72a9a585&app_key=b2bc0b595313e8d3dcbda591d057ab41&diet=high-protein&health=gluten-free&cuisineType=Italian&mealType=Dinner"
-        client[link2, object : JsonHttpResponseHandler() {
+        client[link, object : JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JSON) {
 
                 val recipeModelArrayList: ArrayList<RecipeModel> = ArrayList<RecipeModel>()
