@@ -103,7 +103,6 @@ Our second build process included adding features to warn the user, such as requ
 Our third build process made the "random" button working to grab a random ingredient to search for recipes, as well as fully implementing the recycler view and touch ups to the app's fonts and color.
 <img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/imp_recV.gif' title='Video Demo' width='' alt='Video Demo' />
 
-
 ## License
 
 Copyright **Carlos Sac & Zhihua Zhu** 
