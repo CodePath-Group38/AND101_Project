@@ -38,11 +38,11 @@ class RecipesActivity : AppCompatActivity() {
                 val arr = json.jsonObject.getJSONArray("hits")
 
                 for(i in 0 until arr.length()) {
-                    var eleObj = arr.getJSONObject(i)
-                    var recipeObj = eleObj.getJSONObject("recipe")
+                    val eleObj = arr.getJSONObject(i)
+                    val recipeObj = eleObj.getJSONObject("recipe")
 
-                    var name = recipeObj.getString("label").toString()
-                    var img = recipeObj.getString("image").toString()
+                    val name = recipeObj.getString("label").toString()
+                    val img = recipeObj.getString("image").toString()
 
                     recipeModelArrayList.add(RecipeModel(name, "temp test", img))
                 }

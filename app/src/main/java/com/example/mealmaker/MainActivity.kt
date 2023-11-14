@@ -1,5 +1,5 @@
 package com.example.mealmaker
-
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -10,14 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.codepath.asynchttpclient.AsyncHttpClient
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler
 import okhttp3.Headers
@@ -62,6 +59,7 @@ class MainActivity : AppCompatActivity() {
         "Meal Type" to ""
     )
 
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -127,27 +125,49 @@ class MainActivity : AppCompatActivity() {
 
             val intent = Intent(this, RecipesActivity::class.java)
 
-            if (ingList != ""){
-                intent.putExtra("link", link)
-                startActivity(intent)
-            }else{
-                Toast.makeText(applicationContext, "Please enter at least one ingredient", Toast.LENGTH_SHORT).show()
-            }
+            if ( ingList != "") {
+                if(isValid()){
+                    Toast.makeText(applicationContext, "Searching", Toast.LENGTH_LONG).show()
+                    intent.putExtra("link", link)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(applicationContext, "False", Toast.LENGTH_LONG).show()
+                }
 
+            }else{
+                Toast.makeText(applicationContext, "Please enter at least one ingredient", Toast.LENGTH_LONG).show()
+            }
+        }
+        val ranButton = findViewById<TextView>(R.id.rand)
+        ranButton.setOnClickListener{
+
+            ingList = getRandomIngredient()
+
+            link = "https://api.edamam.com/api/recipes/v2?type=public&q=$ingList&app_id=$id&app_key=$key"
+            val intent = Intent(this, RecipesActivity::class.java)
+
+            intent.putExtra("link", link)
+            startActivity(intent)
 
         }
     }
 
-    private fun getMealListURL() {
+    private fun isValid(): Boolean {
 
         val client = AsyncHttpClient()
+        var isArrValid = true
 
 
         client[link, object : JsonHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Headers, json: JsonHttpResponseHandler.JSON) {
                 Log.d("Food", "response successful$json")
 
-                Toast.makeText(applicationContext, "searching", Toast.LENGTH_LONG).show()
+                val arr = json.jsonObject.getJSONArray("hits")
+                if(arr.isNull(0)){
+                    Toast.makeText(applicationContext, "Couldn't find recipes", Toast.LENGTH_LONG).show()
+                    isArrValid = false
+                    return
+                }
 
             }
             override fun onFailure(
@@ -159,6 +179,7 @@ class MainActivity : AppCompatActivity() {
                 Log.d("Recipe Error", errorResponse)
             }
         }]
+        return isArrValid
 
     }
 
@@ -175,6 +196,47 @@ class MainActivity : AppCompatActivity() {
 
         parseIngr()
 
+    }
+
+
+
+
+    fun getRandomIngredient(): String {
+        val ingredients = arrayOf(
+            "broccoli",
+            "cauliflower",
+            "spinach",
+            "mushrooms",
+            "peas",
+            "beans",
+            "lentils",
+            "tofu",
+            "tempeh",
+            "seitan",
+            "chicken",
+            "turkey",
+            "beef",
+            "pork",
+            "lamb",
+            "fish",
+            "shrimp",
+            "scallops",
+            "eggs",
+            "cheese",
+            "yogurt",
+            "quinoa",
+            "buckwheat",
+            "oats",
+            "chia seeds",
+            "hemp seeds",
+            "flax seeds",
+            "pumpkin seeds",
+            "sunflower seeds",
+            "almonds"
+        )
+        val random = Random
+        val index = random.nextInt(30)
+        return ingredients[index]
     }
     class CustomArrayAdapter(context: Context, layout: Int, list: Array<String>) : ArrayAdapter<String>(context, layout, list) {
 //        override fun isEnabled(position: Int): Boolean {
