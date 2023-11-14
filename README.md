@@ -3,10 +3,10 @@
 # AND101 Milestone 2 - **Team 38/Meal Maker**
 
 Submitted by:
-- **Team Member 1 Carlos Sac**
-- **Team Member 2 Zhihua Zhu**
+- **Team Member 1: Carlos Sac**
+- **Team Member 2: Zhihua Zhu**
 
-Time spent: **25** hours spent in total
+Time spent: **30** hours spent in total
 
 ## Summary
 
@@ -40,7 +40,6 @@ The following EXTRA features are implemented:
 
 Here's a video that demos all of the app's implemented features:
 
-**Carlos Sac's Features**
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Demo' width='' alt='Video Demo' />
 
 
