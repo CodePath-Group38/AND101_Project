@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="@color/white"
+
     app:cardCornerRadius="10dp"
     app:cardElevation="5dp"
     app:cardMaxElevation="5dp"
@@ -35,7 +35,7 @@
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/recipe_pic"
             android:text="Chicken Style Cheese Cake Recipe"
-            android:textColor="@color/black"
+
             android:textSize="14sp"
             android:textStyle="bold" />
 
