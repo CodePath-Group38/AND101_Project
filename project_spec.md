@@ -91,7 +91,18 @@ Required Feature
 Here's a place for any other notes on the app, it's creation 
 process, or what you learned this unit!  
 
+
 For Milestone 2, include **2+ Videos/GIFs** of the build process here!
+
+Our first build process where we properly swapped to a new activity when on button press, as well as retrieving the correct URL link. 
+<img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/imp_1.gif' title='Video Demo' width='' alt='Video Demo' />
+
+Our second build process included adding features to warn the user, such as requiring them to enter an ingredient to search, as well as having the spinners and drop down menus working for appending more queries to the search URL link.
+<img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/imp_2.gif' title='Video Demo' width='' alt='Video Demo' />
+
+Our third build process made the "random" button working to grab a random ingredient to search for recipes, as well as fully implementing the recycler view and touch ups to the app's fonts and color.
+
+<img src='https://github.com/CodePath-Group38/AND101_Project/blob/main/imp_recV.gif' title='Video Demo' width='' alt='Video Demo' />
 
 ## License
 
